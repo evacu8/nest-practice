@@ -1,6 +1,6 @@
 import { Roles } from '../enums/roles.enum';
 
-export interface CreateUsertDto {
+export interface CreateUserDto {
   firstName: string;
   lastName: string;
   role: Roles;
