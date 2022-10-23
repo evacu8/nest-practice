@@ -5,7 +5,9 @@ export interface User {
   firstName: string;
   lastName: string;
   role: Roles;
-  address: Address;
+  email: string;
+  dateOfBirth: Date;
+  address?: Array<Address>;
   createdAt: Date;
   updatedAt: Date;
 }

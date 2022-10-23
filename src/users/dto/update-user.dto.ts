@@ -4,7 +4,7 @@ export interface UpdateUserDto {
   firstName: string;
   lastName: string;
   role: Roles;
-  address: Address;
+  address?: Array<Address>;
 }
 
 export interface Address {

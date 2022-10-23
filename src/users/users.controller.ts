@@ -5,6 +5,7 @@ import {
   Get,
   HttpCode,
   Param,
+  ParseUUIDPipe,
   Post,
   Put,
 } from '@nestjs/common';
@@ -32,13 +33,15 @@ export class UsersController {
   }
 
   @Get(':id')
-  getProductById(@Param('id') _id_: string): ExternalUserDto {
+  getProductById(
+    @Param('id', new ParseUUIDPipe({ version: '4' })) _id_: string,
+  ): ExternalUserDto {
     return this.mapUserToExternal(this.usersRepository.getUserById(_id_));
   }
 
   @Put(':id')
   updateUser(
-    @Param('id') _id_: string,
+    @Param('id', new ParseUUIDPipe({ version: '4' })) _id_: string,
     @Body() _user_: UpdateUserDto,
   ): ExternalUserDto {
     return this.mapUserToExternal(
