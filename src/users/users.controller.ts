@@ -8,8 +8,10 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { dateToArray } from 'src/helpers/date.helper';
+import { RoleGuard } from 'src/shared/guards/role.guard';
 import { CreateUserDto } from './dto/create-user.dto';
 import { ExternalUserDto } from './dto/external-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -22,6 +24,7 @@ export class UsersController {
   constructor(private usersRepository: UsersDataService) { }
 
   @Post()
+  @UseGuards(RoleGuard)
   addProduct(@Body() item: CreateUserDto): ExternalUserDto {
     return this.mapUserToExternal(this.usersRepository.addUser(item));
   }

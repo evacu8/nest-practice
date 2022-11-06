@@ -1,4 +1,4 @@
-import { Roles } from '../enums/roles.enum';
+import { Roles } from '../../shared/enums/roles.enum';
 
 export interface UpdateUserDto {
   firstName: string;
